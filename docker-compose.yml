@@ -1,0 +1,7 @@
+version: "3.5"
+services:
+  angular-docker:
+    container_name: angular-docker-container
+    build: ./
+    ports:
+      - "9999:80"
