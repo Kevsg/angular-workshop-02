@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+div.card-header {
+  font-size: large;
+}
+
+div.card {
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px
+}
+
+.table {
+  margin-top: 16px
+}
