@@ -1,16 +1,15 @@
-FROM node:13.3.0 AS compile-image
+# Step 1: Build the app in image 'builder'
+FROM node:13.3.0 AS builder
 
-RUN npm install -g yarn
+WORKDIR /usr/src/app
+COPY . .
+RUN npm install && npm run build
 
-WORKDIR /opt/ng
-COPY .npmrc package.json yarn.lock ./
-RUN yarn install
+# Step 2: Use build output from 'builder'
+FROM nginx:stable-alpine
+LABEL version="1.0"
 
-ENV PATH="./node_modules/.bin:$PATH" 
+COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY . ./
-RUN ng build --prod
-
-FROM nginx
-COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=compile-image /opt/ng/dist/app-name /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+COPY --from=builder /usr/src/app/dist/product-app .
