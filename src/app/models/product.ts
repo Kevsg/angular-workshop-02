@@ -3,7 +3,7 @@ export class Product {
 }
 
 export const exampleProduct: Product[] = [
-    { code: 'zzc1', 'name': 'lawnmower', price: 100.5, available: true, rating: 1.0, imageUrl: 'aaa' },
-    { code: 'asdc1', 'name': 'lamp', price: 120.1, available: false, rating: 1.0, imageUrl: 'bbb' },
-    { code: 'xxx1', 'name': 'keyboard', price: 130, available: true, rating: 1.0, imageUrl: 'ccc' }
+    { code: 'zzc1', 'name': 'lawnmower    01', price: 100.5, available: true, rating: 1.0, imageUrl: 'aaa' },
+    { code: 'asdc1', 'name': 'lamp with a big light', price: 120.111, available: false, rating: 2.5, imageUrl: 'bbb' },
+    { code: 'xxx1', 'name': 'Omega keyboard', price: 130, available: true, rating: 5.0, imageUrl: 'ccc' }
 ]

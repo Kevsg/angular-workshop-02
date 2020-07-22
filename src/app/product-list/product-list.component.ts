@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, exampleProduct } from '../models/product';
+import { ProductService } from '../service/product.service'
 
 @Component({
   selector: 'app-product-list',
@@ -8,12 +9,23 @@ import { Product, exampleProduct } from '../models/product';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[] = exampleProduct;
-  filterData: string;
+  products: Product[];
+  filterData: string = '';
 
-  constructor() { }
+  constructor(public service: ProductService) { }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll(): void {
+    this.service.getAllProduct().subscribe((products) => {
+      return (this.products = products);
+    })
+  }
+
+  onRatingClicked(message: string): void {
+    alert(message);
   }
 
 }
