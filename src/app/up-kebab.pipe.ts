@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class UpKebabPipe implements PipeTransform {
 
-  transform(string: string): unknown {
-    return string.replace(/\s+/g, '-').toUpperCase();
+  transform(text: string): unknown {
+    return text.replace(/\s+/g, '-').toUpperCase();
   }
 
 }

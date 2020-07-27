@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product, exampleProduct } from '../models/product'
+import { Product, exampleProduct } from '../models/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs'
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getAllProduct(): Observable<Product[]> {
-    return of(exampleProduct)
+    return of(exampleProduct);
   }
 
   getAllProductHttp(): Observable<Product[]> {
@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   getSpecificProduct(code: string): Observable<Product> {
-    return of(exampleProduct.filter(p => p.code === code)[0])
+    return of(exampleProduct.filter(p => p.code === code)[0]);
   }
 
 }
